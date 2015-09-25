@@ -1,0 +1,27 @@
+{
+  "name": "stylecow-plugin-base64",
+  "description": "Stylecow plugin to embed base64-encoded images in the css",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=4.0"
+  },
+  "author": "Oscar Otero <oom@oscarotero.com>",
+  "homepage": "https://github.com/stylecow/stylecow-plugin-base64",
+  "bugs": "https://github.com/stylecow/stylecow-plugin-base64/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stylecow/stylecow-plugin-base64.git"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.2",
+    "stylecow-core": "^2.0.0"
+  },
+  "scripts": {
+    "test": "mocha tests/cases.js"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "mime": "^1.3.4"
+  }
+}
