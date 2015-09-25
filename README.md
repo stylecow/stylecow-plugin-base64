@@ -1,32 +1,25 @@
-stylecow plugin import
+stylecow plugin base64
 ======================
 
-[![Build Status](https://travis-ci.org/stylecow/stylecow-plugin-import.svg)](https://travis-ci.org/stylecow/stylecow-plugin-import)
+[![Build Status](https://travis-ci.org/stylecow/stylecow-plugin-base64.svg)](https://travis-ci.org/stylecow/stylecow-plugin-base64)
 
-Stylecow plugin to include the @import css files with relative paths in the main css file.
+Stylecow plugin to embed images in the css using base64 encode.
+Only images lower than 3Kb will be embedded.
 
 You write:
 
 ```css
-@import "my-styles.css";
-
-.foo {
-    color: blue;
+div {
+	background: url('image.png');
 }
 ```
 
 And stylecow converts to:
 
 ```css
-.imported-foo {
-    font-size: 2em;
-}
-.other-imported-foo {
-    background: blue;
-}
-.foo {
-    color: blue;
+div {
+    background: url("data:image/png;base64,iVBORw0KGg...");
 }
 ```
 
-More demos in [the tests folder](https://github.com/stylecow/stylecow-plugin-import/tree/master/tests/cases)
+More demos in [the tests folder](https://github.com/stylecow/stylecow-plugin-base64/tree/master/tests/cases)

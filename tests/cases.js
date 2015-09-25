@@ -14,7 +14,7 @@ tests.run(function (test) {
 
 		it('should match ast.json', function() {
 			//test.writeAst()
-			//test.assertAst();
+			test.assertAst();
 		});
 	});
 });
