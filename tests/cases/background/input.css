@@ -1,6 +1,9 @@
 div {
 	background: url('css.png');
 }
-p {
+div {
 	background-image: url('css.svg');
+}
+div {
+	background-image: url('css-big.png');
 }
