@@ -1,3 +1,6 @@
 div {
 	background: url('css.png');
 }
+p {
+	background-image: url('css.svg');
+}

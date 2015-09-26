@@ -5,7 +5,7 @@ var url  = require('url'),
     path = require('path'),
     mime = require('mime');
 
-module.exports = function (tasks, stylecow) {
+module.exports = function (tasks) {
 
     tasks.addTask({
         filter: {
@@ -44,19 +44,14 @@ module.exports = function (tasks, stylecow) {
         file = path.join(path.dirname(rootFile), file);
         var stat = fs.statSync(file);
 
-        if (stat.size > (1024 * 3)) { //3Kb
+        if (stat.size > (1024 * 5)) { //5Kb
             return;
         }
 
         var mimetype = mime.lookup(file);
 
-        switch (mimetype) {
-            case 'image/jpeg':
-            case 'image/jpg':
-            case 'image/png':
-            case 'image/gif':
-                string.name = 'data:' + mimetype + ';base64,' + fs.readFileSync(file).toString('base64');
-                break;
+        if (mimetype.indexOf('image/') === 0) {
+            string.name = 'data:' + mimetype + ';base64,' + fs.readFileSync(file).toString('base64');
         }
     }
 };
