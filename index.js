@@ -1,9 +1,9 @@
 "use strict";
 
-var url  = require('url'),
-    fs   = require('fs'),
-    path = require('path'),
-    mime = require('mime');
+const url  = require('url'),
+      fs   = require('fs'),
+      path = require('path'),
+      mime = require('mime');
 
 module.exports = function (tasks) {
 
@@ -26,8 +26,8 @@ module.exports = function (tasks) {
     });
 
     function embed (fn) {
-        var string = fn.get('String');
-        var file   = string.name;
+        let string = fn.get('String'),
+            file   = string.name;
 
         //is absolute?
         if (url.parse(file).hostname || (file[0] === '/')) {
@@ -35,23 +35,38 @@ module.exports = function (tasks) {
         }
 
         //get the root file
-        var rootFile = fn.getAncestor('Root').getData('file');
+        let rootFile = fn.getAncestor('Root').getData('file');
 
         if (!rootFile) {
             return;
         }
 
         file = path.join(path.dirname(rootFile), file);
-        var stat = fs.statSync(file);
+        let stat = fs.statSync(file);
 
         if (stat.size > (1024 * 5)) { //5Kb
             return;
         }
 
-        var mimetype = mime.lookup(file);
+        let mimetype = mime.lookup(file);
 
         if (mimetype.indexOf('image/') === 0) {
-            string.name = 'data:' + mimetype + ';base64,' + fs.readFileSync(file).toString('base64');
+            let buffer;
+
+            if (mimetype === 'image/svg+xml') {
+                buffer = fs.readFileSync(file).toString();
+                let pos = buffer.indexOf('<svg');
+
+                if (pos === -1) {
+                    return;
+                }
+
+                buffer = new Buffer(buffer.substr(pos));
+            } else {
+                buffer = fs.readFileSync(file);
+            }
+
+            string.name = 'data:' + mimetype + ';base64,' + buffer.toString('base64');
         }
     }
 };
