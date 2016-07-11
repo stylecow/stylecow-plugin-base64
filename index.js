@@ -12,7 +12,9 @@ module.exports = function (tasks) {
             type: 'Declaration',
             name: [
                 'background',
-                'background-image'
+                'background-image',
+                'list-style',
+                'list-style-image',
             ]
         },
         fn: function (declaration) {

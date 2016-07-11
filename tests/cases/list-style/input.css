@@ -1,0 +1,7 @@
+ul {
+	list-style-image: url('../background/css.png');
+}
+
+ul {
+    list-style-image: url('../background/css-big.png');
+}

@@ -1,7 +1,7 @@
 {
   "name": "stylecow-plugin-base64",
   "description": "Stylecow plugin to embed base64-encoded images in the css",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "engines": {
     "node": ">=4.0"
   },

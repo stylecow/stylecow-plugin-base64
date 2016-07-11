@@ -1,0 +1,109 @@
+{
+  "type": "Root",
+  "children": [
+    {
+      "type": "Rule",
+      "children": [
+        {
+          "type": "Selectors",
+          "children": [
+            {
+              "type": "Selector",
+              "children": [
+                {
+                  "type": "TypeSelector",
+                  "name": "ul"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Block",
+          "children": [
+            {
+              "type": "Declaration",
+              "name": "list-style-image",
+              "vendor": null,
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Function",
+                      "name": "url",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "type": "Value",
+                          "children": [
+                            {
+                              "type": "String",
+                              "name": "data:image/png;base64,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"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Rule",
+      "children": [
+        {
+          "type": "Selectors",
+          "children": [
+            {
+              "type": "Selector",
+              "children": [
+                {
+                  "type": "TypeSelector",
+                  "name": "ul"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Block",
+          "children": [
+            {
+              "type": "Declaration",
+              "name": "list-style-image",
+              "vendor": null,
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Function",
+                      "name": "url",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "type": "Value",
+                          "children": [
+                            {
+                              "type": "String",
+                              "name": "../background/css-big.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

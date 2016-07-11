@@ -3,7 +3,7 @@ var stylecow = require('stylecow-core');
 var tests = new stylecow.Test(__dirname + '/cases');
 var tasks = (new stylecow.Tasks()).use(require('../index'));
 
-tests.run(function (test) {
+tests.filter(['list-style']).run(function (test) {
 	tasks.run(test.css);
 
 	describe('cases/' + test.name, function() {
