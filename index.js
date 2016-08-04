@@ -44,7 +44,15 @@ module.exports = function (tasks) {
         }
 
         file = path.join(path.dirname(rootFile), file);
-        let stat = fs.statSync(file);
+
+        let stat;
+
+        try {
+            stat = fs.statSync(file);
+        } catch (error) {
+            tasks.log(error.message, fn);
+            return;
+        }
 
         if (stat.size > (1024 * 5)) { //5Kb
             return;
